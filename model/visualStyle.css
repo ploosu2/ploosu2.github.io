@@ -1,0 +1,93 @@
+#gameCanvas {
+    /*background: linear-gradient(#70d, gold, #123, #0f4);*/
+    border: 2px solid black;
+}
+
+#gameArea {
+    display: block;
+    text-align: center;
+}
+
+#info {
+    vertical-align: top;
+}
+
+#pieceInfo {
+    padding: 3px;
+    min-height: 120px;
+}
+
+#pieceInfo p {
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+
+#pieceInfo h4{
+    margin-bottom: 4px;
+    margin-top: 4px;
+}
+
+#pieceInfo #deadNote {
+    position: absolute;
+    transform: translate(-10px, -75px) rotate(45deg);
+    font-size: 45px;
+    background: rgba(20, 20, 20, 0.45);
+    color: rgba(130, 0, 0, 0.92);
+    font-weight: 900;
+}
+
+
+#pieceButtons {
+    margin-left: 5px;
+    min-height: 80px;
+    vertical-align: top;
+    text-align: left;
+}
+
+#pieceButtons button {
+    font-size: 14px;
+    margin-left: 4px;
+    margin-top: 5px;
+    text-align: center;
+}
+
+#toolTip {
+    background: rgba(100, 90, 190, 0.9);
+    padding: 2px;
+    pointer-events: none;
+}
+
+#toolTip p {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-size: 18px;
+    pointer-events: none;
+}
+
+#toolTip span.cantAfford {
+    color: #f12;
+}
+
+
+#moveDoneButton {
+    position: absolute;
+    left: 50%;
+    top: 40px;
+    font-size: 20px;
+    border-radius: 15px;
+    color: black;
+    background: rgba(250, 130, 70, 0.9);
+    transform: translate(-65%, 0);
+}
+
+#moveDoneButton span.cantAfford {
+    color: red;
+}
+
+#resetMoveButton {
+    position: absolute;
+    background: red;
+    left: 50%;
+    top: 50px;
+    transform: translate(-50%, 100%);
+}
