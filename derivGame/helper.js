@@ -16,10 +16,3 @@ const getRandFrom = (a, ps) => {
 };
 
 const isNumber = s=>!Number.isNaN(+s);
-
-const makeHiddenString = val => {
-    if (val===undefined || val===null) return val;
-    let len = val.toString().length;
-    return new Array(len).fill('?').join("");
-};
-
