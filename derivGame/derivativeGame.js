@@ -18,8 +18,13 @@ class DerivativeGame {
             storeOrigDataOnNode: function(node) {
                 for (let x of this.dataNames) node[x+'Orig'] = node[x];
             },
+            makeHiddenString: function(val) {
+                if (val===undefined || val===null) return val;
+                let len = val.toString().length;
+                return "(?"+len+"?)";
+            },
             hideANode: function(node) {
-                for (let x of this.dataNames) node[x] = makeHiddenString(node[x]);
+                for (let x of this.dataNames) node[x] = this.makeHiddenString(node[x]);
             },
             revealANode: function(node) {
                 if (this.showNodes.includes(node)) return;
