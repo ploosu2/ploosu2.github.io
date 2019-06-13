@@ -54,12 +54,12 @@ const getHint = () => {
     let hintStr = game.getHintString();
     solHolder.style.visibility = "visible";
     solText.style.visibility = "visible";
-    solText.innerHTML = " "+hintStr.replace(/\?+/g, `<span class="hintHidden"> ? </span>`);
+    //TODO as many ?-symbols as there are characters in the hidden part
+    solText.innerHTML = " "+hintStr.replace(/\(\?\d+\?\)/g, `<span class="hintHidden"> ? </span>`);
     
     //" \\("+hintStr+"\\)";
     //updateMathJax(); //don't turn to LaTex, better to copy the answer
     
-    //TODO highlight the ??-areas
     
     hintButton.disabled = game.score<=0;
     updateInfo();
@@ -160,3 +160,7 @@ window.onload = () => {
 
 
 //TODO save points to localStorage
+//TODO buttons for inputting
+//derivInput.focus();
+// set cursor like this: derivInput.setSelectionRange(pos, pos);
+// input like this: derivInput.setRangeText("sin(x)", derivInput.selectionStart, derivInput.selectionEnd);
