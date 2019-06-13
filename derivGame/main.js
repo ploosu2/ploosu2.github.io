@@ -2,6 +2,7 @@
 let funcText, solHolder, solText, derivInput, ownGuessBox, clueButton, skipButton, scoreText, levelText, levelUpButton, levelDownButton;
 
 let game = new DerivativeGame();
+let currentSolved = false;
 
 //re typeset with this: MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
 
@@ -16,6 +17,7 @@ const checkAnswer = () => {
     if (corr) {
         ownGuessBox.classList.add("correct");
         game.onGuessCorrect();
+        currentSolved = true;
         buttonToNext();
         hintButton.disabled = true;
         updateInfo();
@@ -72,6 +74,7 @@ const skipPuzzle = () => {
 
 const nextPuzzle = () => {
     makeNewFunc();
+    currentSolved = false;
     solText.innerHTML = "";
     solHolder.style.visibility = "hidden";
     ownGuessBox.classList.remove("correct");
@@ -126,6 +129,16 @@ window.onload = () => {
         checkAnswer(); //TODO not efficient to check on input??
     });
     
+    derivInput.addEventListener("keyup", evt=> {
+        if (evt.keyCode===13) {
+            if (currentSolved) {
+                nextPuzzle();
+            } else {
+                checkAnswer();
+            }
+        }
+    });
+    
     hintButton = document.getElementById("clueButton");
     hintButton.onclick = () => {
         getHint();
@@ -144,3 +157,6 @@ window.onload = () => {
     makeNewFunc();
     updateInfo();
 };
+
+
+//TODO save points to localStorage
